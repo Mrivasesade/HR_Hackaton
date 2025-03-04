@@ -1,4 +1,4 @@
-def plot_stacked_bar(df_pivot, title="Stacked Bar Chart"):
+def plot_stacked_bar(df_pivot, figsize_nrows, figsize_ncols):
     
     import numpy as np
     import matplotlib.pyplot as plt
@@ -9,17 +9,16 @@ def plot_stacked_bar(df_pivot, title="Stacked Bar Chart"):
 
     Parameters:
     df_pivot (pd.DataFrame): A pivoted DataFrame where:
-        - Index is Performance Score categories.
-        - Columns are Departments.
+        - Index is Score categories.
+        - Columns is one category.
         - Values represent counts.
-    title (str): The title of the plot.
+    
     """
-    # Transpose the DataFrame if needed (departments should be columns)
-    if df_pivot.index.name == "Department":  
-        df_pivot = df_pivot.T  
-
+   
     # Initialize figure
-    fig, ax = plt.subplots(figsize=(8, 5))
+    
+    #fig, ax = plt.subplots(figsize=(20, 5))
+    fig, ax = plt.subplots(figsize=(figsize_nrows,figsize_ncols))
 
     # Bottom position for stacking (starting at zero)
     bottom = np.zeros(len(df_pivot))  
